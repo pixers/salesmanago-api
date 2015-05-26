@@ -1,0 +1,12 @@
+composer.lock
+composer.phar
+vendor/
+
+# Directories used by IDEs
+nbproject
+.idea
+*~
+.project
+.settings
+.DS_STORE
+*.DS_Store
