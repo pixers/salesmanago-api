@@ -43,7 +43,7 @@ class InvalidRequestException extends SalesManagoAPIException
         $this->responseData = $responseData;
         $this->message = 'Error occured when sending request.';
 
-        parent::__construct($message, 0, null);
+        parent::__construct($this->message, 0, null);
     }
 
     /**
