@@ -26,8 +26,6 @@ API Client is divided into several sub-services, responsible for particular reso
     * ContactService::listRecentActivity($data)
 * [EmailService](src/Pixers/SalesManagoAPI/Service/EmailService.php)
     * EmailService::create($data)
-    * EmailService::update($taskId, $data)
-    * EmailService::delete($taskId)
 * [EventService](src/Pixers/SalesManagoAPI/Service/EventService.php)
     * EventService::create($owner, $email, $data)
     * EventService::update($owner, $eventId, $data)
