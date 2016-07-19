@@ -42,6 +42,27 @@ class ContactService extends AbstractService
     }
 
     /**
+     * Upsert contact data.
+     *
+     * @param string $owner Contact owner e-mail address
+     * @param string $email Contact e-mail address
+     * @param array  $data  Contact data
+     *
+     * @return array
+     */
+    public function upsert($owner, $email, array $data)
+    {
+        $data = self::mergeData($data, [
+            'owner'     => $owner,
+            'contact'   =>  [
+                'email' =>  $email
+            ]
+        ]);
+
+        return $this->client->doPost('contact/upsert', $data);
+    }    
+
+    /**
      * Deleting contact.
      *
      * @param string $owner Contact owner e-mail address
