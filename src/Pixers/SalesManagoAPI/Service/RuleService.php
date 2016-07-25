@@ -10,9 +10,8 @@ class RuleService extends AbstractService
     /**
      * Add automation rule.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param string $data  Rule data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  string $data  Rule data
      * @return array
      */
     public function create($owner, array $data)

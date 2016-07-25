@@ -1,6 +1,8 @@
 composer.lock
 composer.phar
+phpunit.phar
 vendor/
+phpunit.xml
 
 # Directories used by IDEs
 nbproject

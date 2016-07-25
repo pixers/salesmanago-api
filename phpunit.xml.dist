@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="tests/bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <php>
+        <var name="SALESMANAGO_CLIENT_EMAIL" value=""/>
+        <var name="SALESMANAGO_CLIENT_PASSWORD" value=""/>
+        <var name="SALESMANAGO_CLIENT_ID" value=""/>
+        <var name="SALESMANAGO_END_POINT" value="***.salesmanago.pl"/>
+        <var name="SALESMANAGO_API_SECRET" value=""/>
+        <var name="SALESMANAGO_API_KEY" value=""/>
+        <var name="SALESMANAGO_OWNER" value=""/>
+        <var name="SALESMANAGO_EMAIL_ID" value=""/>
+        <var name="SALESMANAGO_CONTACT_EMAIL" value=""/>
+        <var name="SALESMANAGO_IS_PARTNER" value="false"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="SalesManago API Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

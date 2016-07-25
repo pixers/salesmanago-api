@@ -10,8 +10,7 @@ class TaskService extends AbstractService
     /**
      * Create new task.
      *
-     * @param array $data Task data
-     *
+     * @param  array $data Task data
      * @return array
      */
     public function create(array $data)
@@ -29,9 +28,8 @@ class TaskService extends AbstractService
     /**
      * Update task.
      *
-     * @param string $taskId Task internal ID
-     * @param array  $data   Task data
-     *
+     * @param  string $taskId Task internal ID
+     * @param  array  $data   Task data
      * @return array
      */
     public function update($taskId, array $data)
@@ -49,8 +47,7 @@ class TaskService extends AbstractService
     /**
      * Delete task.
      *
-     * @param string $taskId Task internal ID
-     *
+     * @param  string $taskId Task internal ID
      * @return array
      */
     public function delete($taskId)

@@ -10,10 +10,9 @@ class EventService extends AbstractService
     /**
      * Creating a new external event.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param string $email Contact e-mail address
-     * @param array  $data  Contact event data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  string $email Contact e-mail address
+     * @param  array  $data  Contact event data
      * @return array
      */
     public function create($owner, $email, array $data)
@@ -29,10 +28,9 @@ class EventService extends AbstractService
     /**
      * Updating external event.
      *
-     * @param string $owner   Contact owner e-mail address
-     * @param string $eventId Ext event identifier
-     * @param array  $data    New event data
-     *
+     * @param  string $owner   Contact owner e-mail address
+     * @param  string $eventId Ext event identifier
+     * @param  array  $data    New event data
      * @return array
      */
     public function update($owner, $eventId, array $data)
@@ -50,9 +48,8 @@ class EventService extends AbstractService
     /**
      * Deleting contact external event.
      *
-     * @param string $owner   Contact owner e-mail address
-     * @param string $eventId Ext event identifier
-     *
+     * @param  string $owner   Contact owner e-mail address
+     * @param  string $eventId Ext event identifier
      * @return array
      */
     public function delete($owner, $eventId)

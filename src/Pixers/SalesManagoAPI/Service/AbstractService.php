@@ -14,6 +14,9 @@ abstract class AbstractService
      */
     protected $client;
 
+    /**
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;
@@ -22,9 +25,8 @@ abstract class AbstractService
     /**
      * Replaces elements from passed arrays into the first array recursively.
      *
-     * @param array $base         The array in which elements are replaced
-     * @param array $replacements The array from which elements will be extracted
-     *
+     * @param  array $base         The array in which elements are replaced
+     * @param  array $replacements The array from which elements will be extracted
      * @return array
      */
     protected static function mergeData(array $base, array $replacements)

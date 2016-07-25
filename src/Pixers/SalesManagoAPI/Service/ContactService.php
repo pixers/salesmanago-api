@@ -10,9 +10,8 @@ class ContactService extends AbstractService
     /**
      * Adding a new contact.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param array  $data  Contact data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  array  $data  Contact data
      * @return array
      */
     public function create($owner, array $data)
@@ -25,10 +24,9 @@ class ContactService extends AbstractService
     /**
      * Update contact data.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param string $email Contact e-mail address
-     * @param array  $data  Contact data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  string $email Contact e-mail address
+     * @param  array  $data  Contact data
      * @return array
      */
     public function update($owner, $email, array $data)
@@ -42,33 +40,30 @@ class ContactService extends AbstractService
     }
 
     /**
-     * Upsert contact data.
+     * Deleting contact.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param string $email Contact e-mail address
-     * @param array  $data  Contact data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  string $email Contact e-mail address
+     * @param  array  $data  Contact data
      * @return array
      */
     public function upsert($owner, $email, array $data)
     {
         $data = self::mergeData($data, [
-            'owner'     => $owner,
-            'contact'   =>  [
+            'owner' => $owner,
+            'contact' =>  [
                 'email' =>  $email
             ]
         ]);
-
         return $this->client->doPost('contact/upsert', $data);
-    }    
+    }
 
     /**
      * Deleting contact.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param string $email Contact e-mail address
-     * @param array  $data  Client data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  string $email Contact e-mail address
+     * @param  array  $data  Client data
      * @return array
      */
     public function delete($owner, $email, array $data)
@@ -84,9 +79,8 @@ class ContactService extends AbstractService
     /**
      * Checking whether the contact is already registered.
      *
-     * @param string $owner Contact owner email address
-     * @param string $email Contact email address
-     *
+     * @param  string $owner Contact owner email address
+     * @param  string $email Contact email address
      * @return array
      */
     public function has($owner, $email)
@@ -98,11 +92,25 @@ class ContactService extends AbstractService
     }
 
     /**
+     * Registering contact use discount code.
+     *
+     * @param  string $email  Contact email address
+     * @param  string $coupon Coupon
+     * @return array
+     */
+    public function useCoupon($email, $coupon)
+    {
+        return $this->client->doPost('contact/useContactCoupon', [
+            'email' => $email,
+            'coupon' => $coupon,
+        ]);
+    }
+
+    /**
      * Import contacts list by the e-mail addresses.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param array  $data  Request data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  array  $data  Request data
      * @return array
      */
     public function listByEmails($owner, array $data)
@@ -115,9 +123,8 @@ class ContactService extends AbstractService
     /**
      * Import contacts list by the SalesManago IDS.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param array  $data  Request data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  array  $data  Request data
      * @return array
      */
     public function listByIds($owner, array $data)
@@ -130,9 +137,8 @@ class ContactService extends AbstractService
     /**
      * Import list of last modyfied contacts.
      *
-     * @param string $owner Contact owner e-mail address
-     * @param array  $data  Request data
-     *
+     * @param  string $owner Contact owner e-mail address
+     * @param  array  $data  Request data
      * @return array
      */
     public function listRecentlyModified($owner, array $data)
@@ -145,8 +151,7 @@ class ContactService extends AbstractService
     /**
      * Import data about recently active contacts.
      *
-     * @param array $data Request data
-     *
+     * @param  array $data Request data
      * @return array
      */
     public function listRecentActivity(array $data)

@@ -10,8 +10,7 @@ class EmailService extends AbstractService
     /**
      * Sending SalesManago e-mail.
      *
-     * @param array $data E-mail data
-     *
+     * @param  array $data E-mail data
      * @return array
      */
     public function create(array $data)

@@ -10,8 +10,7 @@ class PhoneListService extends AbstractService
     /**
      * Add a contact to phone list.
      *
-     * @param string $email Contact e-mail address
-     *
+     * @param  string $email Contact e-mail address
      * @return array
      */
     public function add($email)
@@ -24,8 +23,7 @@ class PhoneListService extends AbstractService
     /**
      * Remove a contact to phone list.
      *
-     * @param string $email Contact e-mail address
-     *
+     * @param  string $email Contact e-mail address
      * @return array
      */
     public function remove($email)

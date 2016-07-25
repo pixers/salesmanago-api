@@ -2,6 +2,8 @@
 
 namespace Pixers\SalesManagoAPI\Exception;
 
+use GuzzleHttp\Psr7\Response as Response;
+
 /**
  * @author Sylwester Łuczak <sylwester.luczak@pixers.pl>
  */
@@ -23,24 +25,24 @@ class InvalidRequestException extends SalesManagoAPIException
     protected $requestData;
 
     /**
-     * @var array
+     * @var Response
      */
-    protected $responseData;
+    protected $response;
 
     /**
      * Extended Exception constructor.
      *
-     * @param string $requestMethod Request method
-     * @param string $requestUrl    Request URL
-     * @param array  $requestData   Request data
-     * @param array  $responseData  Response data
+     * @param string   $requestMethod Request method
+     * @param string   $requestUrl    Request URL
+     * @param array    $requestData   Request data
+     * @param Response $response      Response
      */
-    public function __construct($requestMethod, $requestUrl, array $requestData, array $responseData = null)
+    public function __construct($requestMethod, $requestUrl, array $requestData, Response $response)
     {
         $this->requestMethod = $requestMethod;
         $this->requestUrl = $requestUrl;
         $this->requestData = $requestData;
-        $this->responseData = $responseData;
+        $this->response = $response;
         $this->message = 'Error occured when sending request.';
 
         parent::__construct($this->message, 0, null);
@@ -77,12 +79,12 @@ class InvalidRequestException extends SalesManagoAPIException
     }
 
     /**
-     * Returning response data.
+     * Returning response.
      *
-     * @return array
+     * @return Response
      */
-    public function getResponseData()
+    public function getResponse()
     {
-        return $this->responseData;
+        return $this->response;
     }
 }

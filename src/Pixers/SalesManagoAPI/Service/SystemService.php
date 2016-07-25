@@ -10,8 +10,7 @@ class SystemService extends AbstractService
     /**
      * Register system account (only for SalesManago partners).
      *
-     * @param string $data Account data
-     *
+     * @param  string $data Account data
      * @return array
      */
     public function registerAccount(array $data)
@@ -22,16 +21,11 @@ class SystemService extends AbstractService
     /**
      * Temporary authorise.
      *
-     * @param string $userName
-     * @param string $password
-     *
+     * @param  array $data
      * @return array
      */
-    public function authorise($userName, $password)
+    public function authorise(array $data)
     {
-        return $this->client->doPost('system/authorise', [
-            'userName' => $userName,
-            'password' => $password,
-        ]);
+        return $this->client->doPost('system/authorise', $data);
     }
 }
