@@ -9,7 +9,7 @@ Install the package through composer.
 For the latest stable version use:
 
 ```
-php composer.phar require pixers/salesmanago-api:1.1
+php composer.phar require pixers/salesmanago-api:1.1.1
 ```
 
 For the latest version use:
