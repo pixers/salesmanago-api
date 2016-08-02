@@ -115,7 +115,7 @@ class SalesManago
      * @param  string $className
      * @return mixed
      */
-    public function getService($className)
+    protected function getService($className)
     {
         if (!isset($this->services[$className])) {
             $this->services[$className] = new $className($this->client);
