@@ -66,19 +66,19 @@ API Client is divided into several sub-services, responsible for particular reso
 <?php
 
 use Pixers\SalesManagoAPI\Client;
-use Pixers\SalesManagoAPI\Service\ContactService;
-use Pixers\SalesManagoAPI\Service\EventService;
+use Pixers\SalesManagoAPI\SalesManago;
 
 // First - initialize configured client
 // endpoint - e.g. https://app3.salesmanago.pl/api/
 $client = new Client($clientId, $endpoint, $apiSecret, $apiKey);
 
-// Now you can use specific services
-$contactService = new ContactService($client);
-$contactResponse = $contactService->delete($owner, $email, $data);
+// Then - initialize SalesManago Services Locator
+$salesManago = new SalesManago($client);
 
-$eventService = new EventService($client);
-$eventResponse = $eventService->delete($owner, $eventId);
+// Now you can use specific services
+$contactResponse = $salesManago->getContactService()->delete($owner, $email, $data);
+
+$eventResponse = $salesManago->getEventService()->delete($owner, $eventId);
 ```
 
 ## Tests
