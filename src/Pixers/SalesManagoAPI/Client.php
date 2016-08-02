@@ -34,7 +34,7 @@ class Client
     {
         $this->config = [
             'client_id' => $clientId,
-            'endpoint' => $endPoint,
+            'endpoint' => rtrim($endPoint, '/') . '/',
             'api_secret' => $apiSecret,
             'api_key' => $apiKey
         ];
@@ -44,10 +44,30 @@ class Client
                 throw new InvalidArgumentException($key . ' parameter is required', $parameter);
             }
         }
+    }
 
-        $this->guzzleClient = new GuzzleClient([
-            'base_uri' => $this->config['endpoint']
-        ]);
+    /**
+     * Sets GuzzleClient.
+     *
+     * @param GuzzleClient $guzzleClient
+     */
+    public function setGuzzleClient(GuzzleClient $guzzleClient)
+    {
+        $this->guzzleClient = $guzzleClient;
+    }
+
+    /**
+     * Gets GuzzleClient.
+     *
+     * @return GuzzleClient
+     */
+    public function getGuzzleClient()
+    {
+        if (!$this->guzzleClient) {
+            $this->guzzleClient = new GuzzleClient();
+        }
+
+        return $this->guzzleClient;
     }
 
     /**
@@ -84,10 +104,10 @@ class Client
      */
     protected function doRequest($method, $apiMethod, array $data = [])
     {
-        $url = 'http://' . $this->config['endpoint'] . '/api/' . $apiMethod;
+        $url = $this->config['endpoint'] . $apiMethod;
         $data = $this->mergeData($this->createAuthData(), $data);
 
-        $response = $this->guzzleClient->request($method, $url, ['json' => $data]);
+        $response = $this->getGuzzleClient()->request($method, $url, ['json' => $data]);
         $responseContent = \GuzzleHttp\json_decode($response->getBody()->getContents());
 
         if (!property_exists($responseContent, 'success') || !$responseContent->success) {
