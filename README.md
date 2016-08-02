@@ -70,6 +70,7 @@ use Pixers\SalesManagoAPI\Service\ContactService;
 use Pixers\SalesManagoAPI\Service\EventService;
 
 // First - initialize configured client
+// endpoint - e.g. https://app3.salesmanago.pl/api/
 $client = new Client($clientId, $endpoint, $apiSecret, $apiKey);
 
 // Now you can use specific services
