@@ -108,7 +108,7 @@ class Client
         $data = $this->mergeData($this->createAuthData(), $data);
 
         $response = $this->getGuzzleClient()->request($method, $url, ['json' => $data]);
-        $responseContent = \GuzzleHttp\json_decode($response->getBody()->getContents());
+        $responseContent = \GuzzleHttp\json_decode($response->getBody());
 
         if (!property_exists($responseContent, 'success') || !$responseContent->success) {
             throw new InvalidRequestException($method, $url, $data, $response);
