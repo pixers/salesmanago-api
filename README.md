@@ -91,7 +91,7 @@ After that you can run tests with:
 ## Authors
 
 * Sylwester Łuczak <sylwester.luczak@pixers.pl>
-* Antoni Orfin <antoni.orfin@pixers.pl>
+* Antoni Orfin <antoni@scalebeat.com>
 * Michał Kanak <michal.kanak@pixers.pl>
 
 ## License
