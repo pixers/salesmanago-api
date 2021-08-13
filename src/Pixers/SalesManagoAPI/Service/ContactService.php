@@ -40,7 +40,7 @@ class ContactService extends AbstractService
     }
 
     /**
-     * Deleting contact.
+     * Updating contact data if exists, creating if it doesn't.
      *
      * @param  string $owner Contact owner e-mail address
      * @param  string $email Contact e-mail address
